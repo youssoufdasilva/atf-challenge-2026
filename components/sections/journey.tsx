@@ -5,7 +5,7 @@ const phases = [
     number: 1,
     title: "The AI School",
     subtitle: "Learn",
-    date: "April – July 2026",
+    date: "June - July 2026",
     description:
       "Master the Basics. Join a 4-week intensive virtual bootcamp designed for all skill levels. You will learn AI ethics, Python fundamentals, and Prompt Engineering from world-class experts.",
     benefits: [
@@ -17,7 +17,7 @@ const phases = [
     number: 2,
     title: "The AI Challenge",
     subtitle: "Build",
-    date: "August – November 2026",
+    date: "August 2026 - April 2027",
     description:
       "Build Real Solutions. Form a team and apply your skills to solve real challenges in Health, Agriculture, or Finance. The top 1,000 teams get matched with expert mentors and receive compute credits to build a functional Prototype (MVP).",
     benefits: [
@@ -29,7 +29,7 @@ const phases = [
     number: 3,
     title: "Demo Day",
     subtitle: "Launch",
-    date: "April 2027",
+    date: "May 2027",
     description:
       "Showcase to the World. The best teams will pitch live at Regional Demo Days in Accra, Lagos, Nairobi, and Johannesburg. Present your solution to top investors, corporate partners, and employers looking for talent.",
     benefits: [
