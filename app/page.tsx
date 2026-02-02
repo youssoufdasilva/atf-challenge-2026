@@ -1,5 +1,27 @@
-import { ComponentExample } from "@/components/component-example";
+import {
+  Header,
+  Hero,
+  Mission,
+  Journey,
+  WhyJoin,
+  Eligibility,
+  KeyDates,
+  Footer,
+} from "@/components/sections";
 
 export default function Page() {
-return <ComponentExample />;
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Mission />
+        <Journey />
+        <WhyJoin />
+        <Eligibility />
+        <KeyDates />
+        <Footer />
+      </main>
+    </>
+  );
 }
