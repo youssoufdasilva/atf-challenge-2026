@@ -10,13 +10,13 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-photo-placeholder/ultrarealistic-8k-hd-cinematic-v1.jpg"
+          src="/hero-photo-placeholder/ultrarealistic-8k-hd-cinematic-v2.jpg"
           alt="Young African techies collaborating"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/60 to-background" />
       </div>
 
       {/* Content */}

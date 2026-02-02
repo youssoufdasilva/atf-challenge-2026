@@ -55,9 +55,6 @@ export function Header() {
               height={40}
               className="h-8 w-auto md:h-10"
             />
-            <span className="font-bold text-lg hidden sm:inline=">
-              ATF AI Challenge
-            </span>
           </a>
 
           {/* Desktop Navigation */}
