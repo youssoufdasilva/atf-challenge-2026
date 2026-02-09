@@ -1,23 +1,34 @@
+"use client";
+
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  GraduateMaleIcon,
+  Globe02Icon,
+  Rocket01Icon,
+  BulbIcon,
+} from "@hugeicons/core-free-icons";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/motion";
+
 const benefits = [
   {
-    icon: "🎓",
+    icon: GraduateMaleIcon,
     title: "World-Class Curriculum",
     description: "Learn from content designed by leading AI experts.",
   },
   {
-    icon: "🌍",
+    icon: Globe02Icon,
     title: "Pan-African Network",
     description:
       "Collaborate with peers across 4 countries on our dedicated Discord campus.",
   },
   {
-    icon: "🚀",
+    icon: Rocket01Icon,
     title: "Career Acceleration",
     description:
       "Top participants get fast-tracked into internship pipelines with our corporate partners.",
   },
   {
-    icon: "💡",
+    icon: BulbIcon,
     title: "Zero Cost",
     description:
       "The program is fully funded. It costs you nothing but your time and dedication.",
@@ -32,29 +43,33 @@ export function WhyJoin() {
     >
       <div className="max-w-6xl mx-auto">
         {/* Headline */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16">
-          Why You Should Join
-        </h2>
+        <FadeIn>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16">
+            Why You Should Join
+          </h2>
+        </FadeIn>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {benefits.map((benefit) => (
-            <div
+            <StaggerItem
               key={benefit.title}
               className="bg-background border border-border p-6 md:p-8 flex items-start gap-4"
             >
-              <span className="text-3xl md:text-4xl flex-shrink-0">
-                {benefit.icon}
-              </span>
+              <HugeiconsIcon
+                icon={benefit.icon}
+                className="size-8 md:size-10 text-primary shrink-0"
+                strokeWidth={1.5}
+              />
               <div>
                 <h3 className="text-lg md:text-xl font-bold mb-2">
                   {benefit.title}
                 </h3>
                 <p className="text-muted-foreground">{benefit.description}</p>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

@@ -26,7 +26,7 @@ export function Header() {
 
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -38,11 +38,12 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
-          : "bg-transparent"
-      }`}
+      // className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      //   isScrolled
+      //     ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
+      //     : "bg-transparent"
+      // }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 -- bg-background/95 backdrop-blur-sm border-b border-border shadow-sm`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <nav className="flex items-center justify-between h-16 md:h-20">
@@ -64,7 +65,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
@@ -118,7 +119,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1"
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1"
                 >
                   {link.label}
                 </a>
