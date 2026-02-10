@@ -56,7 +56,7 @@ export function Hero() {
             size="lg"
             className="text-base px-8 py-6 bg-white text-primary border-2 hover:border-white hover:text-white"
           >
-            <a href="#apply">Apply for the AI School</a>
+            <a href="/apply">Apply for the AI School</a>
           </Button>
         </motion.div>
 
