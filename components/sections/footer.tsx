@@ -27,7 +27,7 @@ export function Footer() {
           <Button
             asChild
             size="lg"
-            className="text-base px-8 py-6 bg-background text-foreground hover:bg-background/90 hover:text-background"
+            className="w-full sm:w-auto max-w-full whitespace-normal text-center text-base px-8 py-6 bg-background text-foreground hover:bg-background/90 hover:text-background"
           >
             <a href="/apply">Apply Now - Registration Closes March 31</a>
           </Button>
