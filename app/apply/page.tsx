@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -58,14 +57,16 @@ export default function ApplyPage() {
             {/* Embed Container — replace the iframe src with the 3rd party form URL,
                 or replace the entire iframe with a script-injected form <div> */}
             <div className="border border-border rounded-lg overflow-hidden bg-card shadow-sm">
-              <iframe
-                src="about:blank"
-                title="ATF AI Challenge Application Form"
-                className="w-full border-0"
+              <div
+                className="w-full flex flex-col items-center justify-center gap-4 text-muted-foreground border-2 border-dashed border-border rounded-lg bg-muted/30"
                 style={{ minHeight: "800px" }}
-                loading="lazy"
-                allow="camera; microphone; autoplay; encrypted-media"
-              />
+              >
+                <svg className="w-12 h-12 text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                <p className="text-sm font-medium">Third-party form embed will appear here</p>
+                <p className="text-xs text-muted-foreground/60">Replace this placeholder with the form iframe URL</p>
+              </div>
             </div>
 
             {/* Helper text */}
