@@ -55,7 +55,7 @@ export function Header() {
               alt="ATF Logo"
               width={40}
               height={40}
-              className="h-8 w-auto md:h-10"
+              className="h-8 w-auto md:h-12"
             />
           </Link>
 
