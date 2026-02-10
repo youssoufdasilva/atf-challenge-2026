@@ -13,8 +13,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          // src="/hero-photo-placeholder/ultrarealistic-8k-hd-cinematic-v2.jpg"
-          src="/hero-photo-placeholder/female-engineer-inspecting-robotic-arm-tiny.jpg"
+          src="/hero-photo-placeholder/female-engineer-inspecting-robotic-arm.jpg"
           alt="Young African techies collaborating"
           fill
           className="object-cover"

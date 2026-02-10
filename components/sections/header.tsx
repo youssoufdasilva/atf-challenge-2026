@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/#mission", label: "Mission" },
@@ -16,6 +17,7 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,10 +31,14 @@ export function Header() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    const hash = href.startsWith("/") ? href.substring(1) : href;
+
+    if (pathname === "/") {
+      e.preventDefault();
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -55,7 +61,7 @@ export function Header() {
               alt="ATF Logo"
               width={40}
               height={40}
-              className="h-8 w-auto md:h-12"
+              className="h-8 w-auto md:h-18"
             />
           </Link>
 
@@ -66,7 +72,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-base font-medium hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
