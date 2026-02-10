@@ -50,10 +50,9 @@ export function Header() {
           ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
           : "bg-background/60 backdrop-blur-sm text-foreground"
       }`}
-      // className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 -- bg-background/95 backdrop-blur-sm border-b border-border shadow-sm`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
-        <nav className="flex items-center justify-between h-16 md:h-20">
+        <nav className="flex items-center justify-between h-14 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -61,7 +60,7 @@ export function Header() {
               alt="ATF Logo"
               width={40}
               height={40}
-              className="h-8 w-auto md:h-18"
+              className="h-12 w-auto md:h-18"
             />
           </Link>
 

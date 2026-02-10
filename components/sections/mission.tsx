@@ -46,7 +46,7 @@ export function Mission() {
         <FadeIn delay={0.2}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">
             We Are Building the Next Generation of{" "}
-            <span className="text-primary">African Innovators</span>.
+            <span className="text-primary">African Innovators</span>
           </h2>
         </FadeIn>
 
@@ -63,7 +63,7 @@ export function Mission() {
             <p>
               Whether you are a coder, a designer, or a problem-solver, this is
               your launchpad. We provide the curriculum, the mentors, and the
-              technology—you provide the ambition.
+              technology; and you bring the ambition.
             </p>
           </div>
         </FadeIn>

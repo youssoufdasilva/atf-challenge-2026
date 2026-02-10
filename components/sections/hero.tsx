@@ -23,52 +23,44 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl text-center pt-8 bg-primary">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
-        >
-          Don&apos;t Just Watch the AI Revolution.{" "}
-          <span className="text-white">Lead It.</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-8"
-        >
-          Join the ATF AI Challenge: The continent&apos;s largest hands-on
-          Artificial Intelligence program. Upskill, form a team, and build
-          solutions that solve Africa&apos;s toughest problems.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="text-base px-8 py-6 bg-white text-primary border-2 hover:border-white hover:text-white"
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <div className="max-w-3xl text-center py-8 bg-primary">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
           >
-            <a href="/apply">Apply for the AI School</a>
-          </Button>
-        </motion.div>
+            Don&apos;t Just Watch the AI Revolution.{" "}
+            <span className="text-white">Lead It.</span>
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-sm text-white hidden"
-        >
-          Open to students and recent graduates in Ghana, Nigeria, Kenya, and
-          South Africa.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-8"
+          >
+            Join the ATF AI Challenge: The continent&apos;s largest hands-on
+            Artificial Intelligence program. Upskill, form a team, and build
+            solutions that solve Africa&apos;s toughest problems.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="text-base px-8 py-6 bg-white text-primary border-2 hover:border-white hover:text-white"
+            >
+              <a href="/apply">Apply for the AI School</a>
+            </Button>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
