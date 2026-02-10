@@ -1,3 +1,7 @@
+"use client";
+
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/motion";
+
 const milestones = [
   { date: "Feb 15", milestone: "Applications Open", active: true },
   { date: "May 31", milestone: "Applications Close", active: false },
@@ -14,24 +18,26 @@ export function KeyDates() {
     >
       <div className="max-w-4xl mx-auto">
         {/* Headline */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16">
-          Timeline &amp; Key Dates
-        </h2>
+        <FadeIn>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16">
+            Timeline &amp; Key Dates
+          </h2>
+        </FadeIn>
 
         {/* Timeline */}
         <div className="relative">
           {/* Horizontal line for desktop */}
           <div className="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-border" />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
             {milestones.map((item, index) => (
-              <div
+              <StaggerItem
                 key={index}
                 className="relative flex md:flex-col items-start md:items-center gap-4 md:gap-3"
               >
                 {/* Dot indicator */}
                 <div
-                  className={`w-4 h-4 rounded-full flex-shrink-0 z-10 ${
+                  className={`w-4 h-4 rounded-full shrink-0 z-10 ${
                     item.active
                       ? "bg-primary ring-4 ring-primary/20"
                       : "bg-border"
@@ -56,9 +62,9 @@ export function KeyDates() {
                     {item.milestone}
                   </p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>

@@ -1,11 +1,16 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
+import { FadeIn } from "@/components/ui/motion";
 
 const phases = [
   {
     number: 1,
     title: "The AI School",
     subtitle: "Learn",
-    date: "April – July 2026",
+    date: "June - July 2026",
     description:
       "Master the Basics. Join a 4-week intensive virtual bootcamp designed for all skill levels. You will learn AI ethics, Python fundamentals, and Prompt Engineering from world-class experts.",
     benefits: [
@@ -17,7 +22,7 @@ const phases = [
     number: 2,
     title: "The AI Challenge",
     subtitle: "Build",
-    date: "August – November 2026",
+    date: "August 2026 - April 2027",
     description:
       "Build Real Solutions. Form a team and apply your skills to solve real challenges in Health, Agriculture, or Finance. The top 1,000 teams get matched with expert mentors and receive compute credits to build a functional Prototype (MVP).",
     benefits: [
@@ -29,7 +34,7 @@ const phases = [
     number: 3,
     title: "Demo Day",
     subtitle: "Launch",
-    date: "April 2027",
+    date: "May 2027",
     description:
       "Showcase to the World. The best teams will pitch live at Regional Demo Days in Accra, Lagos, Nairobi, and Johannesburg. Present your solution to top investors, corporate partners, and employers looking for talent.",
     benefits: [
@@ -47,12 +52,14 @@ export function Journey() {
     >
       <div className="max-w-6xl mx-auto">
         {/* Headline */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">
-          How It Works
-        </h2>
-        <p className="text-lg text-muted-foreground text-center mb-12 md:mb-16">
-          Your journey from student to founder
-        </p>
+        <FadeIn>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">
+            How It Works
+          </h2>
+          <p className="text-lg text-muted-foreground text-center mb-12 md:mb-16">
+            Your journey from student to founder
+          </p>
+        </FadeIn>
 
         {/* Timeline */}
         <div className="relative">
@@ -61,8 +68,9 @@ export function Journey() {
 
           <div className="space-y-12 md:space-y-0">
             {phases.map((phase, index) => (
-              <div
+              <FadeIn
                 key={phase.number}
+                delay={index * 0.15}
                 className={`relative md:flex md:items-start md:gap-8 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
@@ -112,7 +120,11 @@ export function Journey() {
                           key={benefit}
                           className="flex items-start gap-2 text-sm"
                         >
-                          <span className="text-primary mt-0.5">✓</span>
+                          <HugeiconsIcon
+                            icon={Tick02Icon}
+                            className="size-5 text-primary mt-0.5 shrink-0"
+                            strokeWidth={2}
+                          />
                           <span>{benefit}</span>
                         </li>
                       ))}
@@ -122,17 +134,17 @@ export function Journey() {
 
                 {/* Spacer for alternating layout */}
                 <div className="hidden md:block md:w-1/2" />
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12 md:mt-16">
+        <FadeIn delay={0.5} className="text-center mt-12 md:mt-16">
           <Button asChild size="lg" className="text-base px-8 py-6">
             <a href="#apply">Start Your Journey Today</a>
           </Button>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

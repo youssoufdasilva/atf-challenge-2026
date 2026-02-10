@@ -27,7 +27,7 @@ export function Footer() {
           <Button
             asChild
             size="lg"
-            className="text-base px-8 py-6 bg-background text-foreground hover:bg-background/90"
+            className="text-base px-8 py-6 bg-background text-foreground hover:bg-background/90 hover:text-background"
           >
             <a href="#apply">Apply Now - Registration Closes March 31</a>
           </Button>
@@ -39,7 +39,7 @@ export function Footer() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-background/70 hover:text-background transition-colors"
+              className="text-sm text-background/70 hover:text-primary transition-colors"
             >
               {link.label}
             </a>
@@ -53,7 +53,7 @@ export function Footer() {
             alt="ATF Logo"
             width={48}
             height={48}
-            className="h-12 w-auto invert"
+            className="h-14 w-auto invert= bg-white rounded-lg p-1"
           />
           <p className="text-sm text-background/60">
             Powered by African Technology Forum
