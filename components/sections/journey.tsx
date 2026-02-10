@@ -142,7 +142,7 @@ export function Journey() {
         {/* CTA */}
         <FadeIn delay={0.5} className="text-center mt-12 md:mt-16">
           <Button asChild size="lg" className="text-base px-8 py-6">
-            <a href="#apply">Start Your Journey Today</a>
+            <a href="/apply">Start Your Journey Today</a>
           </Button>
         </FadeIn>
       </div>

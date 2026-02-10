@@ -29,7 +29,7 @@ export function Footer() {
             size="lg"
             className="text-base px-8 py-6 bg-background text-foreground hover:bg-background/90 hover:text-background"
           >
-            <a href="#apply">Apply Now - Registration Closes March 31</a>
+            <a href="/apply">Apply Now - Registration Closes March 31</a>
           </Button>
         </div>
 

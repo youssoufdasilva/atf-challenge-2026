@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
-  { href: "#mission", label: "Mission" },
-  { href: "#journey", label: "How It Works" },
-  { href: "#why-join", label: "Why Join" },
-  { href: "#eligibility", label: "Eligibility" },
-  { href: "#dates", label: "Dates" },
+  { href: "/#mission", label: "Mission" },
+  { href: "/#journey", label: "How It Works" },
+  { href: "/#why-join", label: "Why Join" },
+  { href: "/#eligibility", label: "Eligibility" },
+  { href: "/#dates", label: "Dates" },
 ];
 
 export function Header() {
@@ -48,7 +49,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="/atf-assets/atf-logo-vector.svg"
               alt="ATF Logo"
@@ -56,7 +57,7 @@ export function Header() {
               height={40}
               className="h-8 w-auto md:h-10"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
@@ -75,7 +76,7 @@ export function Header() {
           {/* CTA Button */}
           <div className="flex items-center gap-4">
             <Button asChild size="lg" className="hidden sm:inline-flex">
-              <a href="#apply">Apply</a>
+              <Link href="/apply">Apply</Link>
             </Button>
 
             {/* Mobile Menu Button */}
@@ -125,7 +126,7 @@ export function Header() {
                 </a>
               ))}
               <Button asChild size="lg" className="mt-2">
-                <a href="#apply">Apply Now</a>
+                <Link href="/apply">Apply Now</Link>
               </Button>
             </div>
           </div>
