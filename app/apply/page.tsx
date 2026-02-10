@@ -72,12 +72,9 @@ export default function ApplyPage() {
             {/* Helper text */}
             <p className="text-center text-sm text-muted-foreground mt-6">
               Having trouble with the form?{" "}
-              <a
-                href="mailto:support@africatechforum.org"
-                className="text-primary hover:underline"
-              >
+              <Link href="/contact" className="text-primary hover:underline">
                 Contact support
-              </a>
+              </Link>
             </p>
           </div>
         </section>
