@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = [
-  { href: "#", label: "FAQs" },
-  { href: "#", label: "Partner with Us" },
-  { href: "#", label: "Contact Support" },
-  { href: "#", label: "Privacy Policy" },
+  { href: "/faq", label: "FAQs" },
+  { href: "/partner", label: "Partner with Us" },
+  { href: "/contact", label: "Contact Support" },
+  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 export function Footer() {
@@ -36,13 +37,13 @@ export function Footer() {
         {/* Links */}
         <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-12 border-t border-background/20 pt-12">
           {footerLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-sm text-background/70 hover:text-primary transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
