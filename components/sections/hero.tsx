@@ -8,12 +8,13 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-end py-16 px-4 md:py-24 md:px-8 lg:px-16"
+      className="relative min-h-screen flex items-center justify-start py-16 px-4 md:py-24 md:px-8 lg:px-16"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-photo-placeholder/ultrarealistic-8k-hd-cinematic-v2.jpg"
+          // src="/hero-photo-placeholder/ultrarealistic-8k-hd-cinematic-v2.jpg"
+          src="/hero-photo-placeholder/female-engineer-inspecting-robotic-arm-tiny.jpg"
           alt="Young African techies collaborating"
           fill
           className="object-cover"
@@ -23,7 +24,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto== text-center pt-8 bg-primary">
+      <div className="relative z-10 max-w-3xl text-center pt-8 bg-primary">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,7 +32,7 @@ export function Hero() {
           className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
         >
           Don&apos;t Just Watch the AI Revolution.{" "}
-          <span className="text-primary== text-white">Lead It.</span>
+          <span className="text-white">Lead It.</span>
         </motion.h1>
 
         <motion.p
