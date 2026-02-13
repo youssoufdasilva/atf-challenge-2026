@@ -1,4 +1,11 @@
 import { Button } from "@/components/ui/button";
+import {
+  Facebook01Icon,
+  InstagramIcon,
+  Linkedin01Icon,
+  NewTwitterIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +14,29 @@ const footerLinks = [
   { href: "/partner", label: "Partner with Us" },
   { href: "/contact", label: "Contact Support" },
   { href: "/privacy", label: "Privacy Policy" },
+];
+
+const socialLinks = [
+  {
+    href: "https://www.linkedin.com/company/africantechnologyforum/",
+    label: "LinkedIn",
+    icon: Linkedin01Icon,
+  },
+  {
+    href: "https://x.com/AfTechForum",
+    label: "X",
+    icon: NewTwitterIcon,
+  },
+  {
+    href: "https://www.instagram.com/africantech",
+    label: "Instagram",
+    icon: InstagramIcon,
+  },
+  {
+    href: "https://www.facebook.com/africantechnologyforum/",
+    label: "Facebook",
+    icon: Facebook01Icon,
+  },
 ];
 
 export function Footer() {
@@ -44,6 +74,22 @@ export function Footer() {
             >
               {link.label}
             </Link>
+          ))}
+        </div>
+
+        {/* Social links */}
+        <div className="flex items-center justify-center gap-4 mb-12">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              className="text-background/70 hover:text-primary transition-colors"
+            >
+              <HugeiconsIcon icon={link.icon} strokeWidth={1.8} className="size-6" />
+            </a>
           ))}
         </div>
 
