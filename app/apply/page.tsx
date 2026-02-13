@@ -57,16 +57,14 @@ export default function ApplyPage() {
             {/* Embed Container — replace the iframe src with the 3rd party form URL,
                 or replace the entire iframe with a script-injected form <div> */}
             <div className="border border-border rounded-lg overflow-hidden bg-card shadow-sm">
-              <div
-                className="w-full flex flex-col items-center justify-center gap-4 text-muted-foreground border-2 border-dashed border-border rounded-lg bg-muted/30"
-                style={{ minHeight: "800px" }}
-              >
-                <svg className="w-12 h-12 text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-                <p className="text-sm font-medium">Third-party form embed will appear here</p>
-                <p className="text-xs text-muted-foreground/60">Replace this placeholder with the form iframe URL</p>
-              </div>
+              <iframe
+                src="https://gadainfo.anasatech.com/f/atf-ai-school-registration-bjdt4n"
+                width="100%"
+                height="600"
+                // frameBorder={0}
+                title="ATF AI School Registration Form"
+                loading="lazy"
+              />
             </div>
 
             {/* Helper text */}
