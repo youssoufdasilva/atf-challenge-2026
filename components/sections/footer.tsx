@@ -103,7 +103,15 @@ export function Footer() {
             className="h-14 w-auto invert= bg-white rounded-lg p-1"
           />
           <p className="text-sm text-background/60">
-            Powered by African Technology Forum
+            Powered by{" "}
+            <a
+              href="https://africantechnologyforum.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors underline"
+            >
+              African Technology Forum
+            </a>
           </p>
         </div>
       </div>
