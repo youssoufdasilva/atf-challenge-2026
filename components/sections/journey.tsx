@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useApplyHref } from "@/lib/use-apply-href";
@@ -45,8 +46,24 @@ const phases = [
   },
 ];
 
-export function Journey() {
+function JourneyApplyButton() {
   const applyHref = useApplyHref();
+  return (
+    <Button asChild size="lg" className="text-base px-8 py-6">
+      <a href={applyHref}>Start Your Journey Today</a>
+    </Button>
+  );
+}
+
+function JourneyApplyButtonFallback() {
+  return (
+    <Button asChild size="lg" className="text-base px-8 py-6">
+      <a href="/apply">Start Your Journey Today</a>
+    </Button>
+  );
+}
+
+export function Journey() {
   return (
     <section
       id="journey"
@@ -143,9 +160,9 @@ export function Journey() {
 
         {/* CTA */}
         <FadeIn delay={0.5} className="text-center mt-12 md:mt-16">
-          <Button asChild size="lg" className="text-base px-8 py-6">
-            <a href={applyHref}>Start Your Journey Today</a>
-          </Button>
+          <Suspense fallback={<JourneyApplyButtonFallback />}>
+            <JourneyApplyButton />
+          </Suspense>
         </FadeIn>
       </div>
     </section>

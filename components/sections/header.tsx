@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,11 +15,32 @@ const navLinks = [
   { href: "/#dates", label: "Dates" },
 ];
 
+type HeaderApplyButtonProps = {
+  label: string;
+  className: string;
+};
+
+function HeaderApplyButton({ label, className }: HeaderApplyButtonProps) {
+  const applyHref = useApplyHref();
+  return (
+    <Button asChild size="lg" className={className}>
+      <Link href={applyHref}>{label}</Link>
+    </Button>
+  );
+}
+
+function HeaderApplyButtonFallback({ label, className }: HeaderApplyButtonProps) {
+  return (
+    <Button asChild size="lg" className={className}>
+      <Link href="/apply">{label}</Link>
+    </Button>
+  );
+}
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const applyHref = useApplyHref();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,9 +103,16 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="flex items-center gap-4">
-            <Button asChild size="lg" className="hidden sm:inline-flex">
-              <Link href={applyHref}>Apply</Link>
-            </Button>
+            <Suspense
+              fallback={
+                <HeaderApplyButtonFallback
+                  label="Apply"
+                  className="hidden sm:inline-flex"
+                />
+              }
+            >
+              <HeaderApplyButton label="Apply" className="hidden sm:inline-flex" />
+            </Suspense>
 
             {/* Mobile Menu Button */}
             <button
@@ -132,9 +160,13 @@ export function Header() {
                   {link.label}
                 </a>
               ))}
-              <Button asChild size="lg" className="mt-2">
-                <Link href={applyHref}>Apply Now</Link>
-              </Button>
+              <Suspense
+                fallback={
+                  <HeaderApplyButtonFallback label="Apply Now" className="mt-2" />
+                }
+              >
+                <HeaderApplyButton label="Apply Now" className="mt-2" />
+              </Suspense>
             </div>
           </div>
         )}

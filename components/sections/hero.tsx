@@ -1,12 +1,37 @@
 "use client";
 
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "@/components/ui/motion";
 import { useApplyHref } from "@/lib/use-apply-href";
 
-export function Hero() {
+function HeroApplyButton() {
   const applyHref = useApplyHref();
+  return (
+    <Button
+      asChild
+      size="lg"
+      className="text-base px-8 py-6 bg-white text-primary border-2 hover:border-white hover:text-white"
+    >
+      <a href={applyHref}>Apply for the AI School</a>
+    </Button>
+  );
+}
+
+function HeroApplyButtonFallback() {
+  return (
+    <Button
+      asChild
+      size="lg"
+      className="text-base px-8 py-6 bg-white text-primary border-2 hover:border-white hover:text-white"
+    >
+      <a href="/apply">Apply for the AI School</a>
+    </Button>
+  );
+}
+
+export function Hero() {
   return (
     <section
       id="hero"
@@ -54,13 +79,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
           >
-            <Button
-              asChild
-              size="lg"
-              className="text-base px-8 py-6 bg-white text-primary border-2 hover:border-white hover:text-white"
-            >
-              <a href={applyHref}>Apply for the AI School</a>
-            </Button>
+            <Suspense fallback={<HeroApplyButtonFallback />}>
+              <HeroApplyButton />
+            </Suspense>
           </motion.div>
         </div>
       </div>

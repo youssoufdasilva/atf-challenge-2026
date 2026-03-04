@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Facebook01Icon,
@@ -42,8 +43,32 @@ const socialLinks = [
   },
 ];
 
-export function Footer() {
+function FooterApplyButton() {
   const applyHref = useApplyHref();
+  return (
+    <Button
+      asChild
+      size="lg"
+      className="w-full sm:w-auto max-w-full whitespace-normal text-center text-base px-8 py-6 bg-background text-foreground hover:bg-background/90 hover:text-background"
+    >
+      <a href={applyHref}>Apply Now - Registration Closes March 31</a>
+    </Button>
+  );
+}
+
+function FooterApplyButtonFallback() {
+  return (
+    <Button
+      asChild
+      size="lg"
+      className="w-full sm:w-auto max-w-full whitespace-normal text-center text-base px-8 py-6 bg-background text-foreground hover:bg-background/90 hover:text-background"
+    >
+      <a href="/apply">Apply Now - Registration Closes March 31</a>
+    </Button>
+  );
+}
+
+export function Footer() {
   return (
     <footer
       id="footer"
@@ -59,13 +84,9 @@ export function Footer() {
             The next unicorn startup could be yours. The next breakthrough in
             African healthcare could be your code. It starts here.
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="w-full sm:w-auto max-w-full whitespace-normal text-center text-base px-8 py-6 bg-background text-foreground hover:bg-background/90 hover:text-background"
-          >
-            <a href={applyHref}>Apply Now - Registration Closes March 31</a>
-          </Button>
+          <Suspense fallback={<FooterApplyButtonFallback />}>
+            <FooterApplyButton />
+          </Suspense>
         </div>
 
         {/* Links */}
