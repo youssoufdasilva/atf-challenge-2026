@@ -29,7 +29,10 @@ function HeaderApplyButton({ label, className }: HeaderApplyButtonProps) {
   );
 }
 
-function HeaderApplyButtonFallback({ label, className }: HeaderApplyButtonProps) {
+function HeaderApplyButtonFallback({
+  label,
+  className,
+}: HeaderApplyButtonProps) {
   return (
     <Button asChild size="lg" className={className}>
       <Link href="/apply">{label}</Link>
@@ -81,9 +84,9 @@ export function Header() {
             <Image
               src="/atf-assets/atf-logo-vector.svg"
               alt="ATF Logo"
-              width={40}
-              height={40}
-              className="h-12 w-auto md:h-18"
+              width={10}
+              height={10}
+              className="h-8 w-auto md:h-10"
             />
           </Link>
 
@@ -111,7 +114,10 @@ export function Header() {
                 />
               }
             >
-              <HeaderApplyButton label="Apply" className="hidden sm:inline-flex" />
+              <HeaderApplyButton
+                label="Apply"
+                className="hidden sm:inline-flex"
+              />
             </Suspense>
 
             {/* Mobile Menu Button */}
@@ -162,7 +168,10 @@ export function Header() {
               ))}
               <Suspense
                 fallback={
-                  <HeaderApplyButtonFallback label="Apply Now" className="mt-2" />
+                  <HeaderApplyButtonFallback
+                    label="Apply Now"
+                    className="mt-2"
+                  />
                 }
               >
                 <HeaderApplyButton label="Apply Now" className="mt-2" />
