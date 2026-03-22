@@ -191,9 +191,9 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 z-1 bg-primary"
       />
 
-      {/* Layer 10: headline / CTA + scroll cue  -- replace backdrop with "bg-primary" if you want to revert */}
+      {/* Layer 10: headline / CTA + scroll cue */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="max-w-3xl text-center py-8 px-2 backdrop-blur-md">
+        <div className="max-w-3xl text-center py-8 px-2 bg-primary">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
