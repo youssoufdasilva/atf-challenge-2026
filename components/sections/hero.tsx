@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "@/components/ui/motion";
 import { useApplyHref } from "@/lib/use-apply-href";
-import { heroRedClipPathCss } from "@/lib/hero-clip-path";
+import { heroEquilateralTrianglePointsAttr } from "@/lib/hero-triangle-geometry";
 import {
   motion as M,
   useMotionValueEvent,
@@ -40,6 +40,9 @@ const DEV_HERO_TRIANGLE_MAX_ROTATE_DEG = 82;
 
 /** Fraction of min(w,h) at scale 1; hole size = this × min(w,h) × animated scale. */
 const DEV_HERO_TRIANGLE_BASE_RADIUS_FRAC = 0.14;
+
+/** SVG stroke width in CSS pixels (`vector-effect: non-scaling-stroke`). */
+const DEV_HERO_TRIANGLE_STROKE_WIDTH_PX = 4;
 
 /** `0` = off; else max upward shift of the photo as % of its height. */
 const DEV_HERO_PARALLAX_STRENGTH = 10;
@@ -71,7 +74,8 @@ function HeroApplyButtonFallback() {
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const redLayerRef = useRef<HTMLDivElement | null>(null);
+  const triangleSvgRef = useRef<SVGSVGElement | null>(null);
+  const trianglePolygonRef = useRef<SVGPolygonElement | null>(null);
   const sizeRef = useRef({ w: 0, h: 0 });
 
   const [scrollMotionReady, setScrollMotionReady] = useState(false);
@@ -98,10 +102,11 @@ export function Hero() {
     revealProgressRef.current = revealProgress;
   }, [revealProgress]);
 
-  const syncRedClipPath = useCallback((rp: number) => {
-    const red = redLayerRef.current;
+  const syncTriangleOverlay = useCallback((rp: number) => {
+    const svg = triangleSvgRef.current;
+    const poly = trianglePolygonRef.current;
     const { w, h } = sizeRef.current;
-    if (!red || w <= 0 || h <= 0) return;
+    if (!svg || !poly || w <= 0 || h <= 0) return;
 
     const triScale =
       DEV_HERO_TRIANGLE_MIN_SCALE +
@@ -110,14 +115,18 @@ export function Hero() {
       DEV_HERO_TRIANGLE_INITIAL_ROTATE_DEG +
       DEV_HERO_TRIANGLE_MAX_ROTATE_DEG * rp;
 
-    red.style.clipPath = heroRedClipPathCss(
-      w,
-      h,
-      DEV_HERO_TRIANGLE_ANCHOR.x,
-      DEV_HERO_TRIANGLE_ANCHOR.y,
-      triScale,
-      rot,
-      DEV_HERO_TRIANGLE_BASE_RADIUS_FRAC,
+    svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    poly.setAttribute(
+      "points",
+      heroEquilateralTrianglePointsAttr(
+        w,
+        h,
+        DEV_HERO_TRIANGLE_ANCHOR.x,
+        DEV_HERO_TRIANGLE_ANCHOR.y,
+        triScale,
+        rot,
+        DEV_HERO_TRIANGLE_BASE_RADIUS_FRAC,
+      ),
     );
   }, []);
 
@@ -128,16 +137,16 @@ export function Hero() {
     const measureAndSync = () => {
       const r = el.getBoundingClientRect();
       sizeRef.current = { w: r.width, h: r.height };
-      syncRedClipPath(revealProgressRef.current.get());
+      syncTriangleOverlay(revealProgressRef.current.get());
     };
 
     measureAndSync();
     const ro = new ResizeObserver(measureAndSync);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [syncRedClipPath]);
+  }, [syncTriangleOverlay]);
 
-  useMotionValueEvent(revealProgress, "change", syncRedClipPath);
+  useMotionValueEvent(revealProgress, "change", syncTriangleOverlay);
 
   const parallaxY = useTransform(
     scrollYProgress,
@@ -184,12 +193,23 @@ export function Hero() {
         )}
       </div>
 
-      {/* Layer 1: brand red with triangular hole via CSS clip-path (px space = responsive) */}
-      <div
-        ref={redLayerRef}
+      {/* Layer 1: brand triangle stroke (photo shows through; stroke px constant via SVG) */}
+      <svg
+        ref={triangleSvgRef}
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-1 bg-primary"
-      />
+        className="pointer-events-none absolute inset-0 z-1 size-full"
+        preserveAspectRatio="none"
+        role="presentation"
+      >
+        <polygon
+          ref={trianglePolygonRef}
+          fill="none"
+          stroke="var(--primary)"
+          strokeWidth={DEV_HERO_TRIANGLE_STROKE_WIDTH_PX}
+          strokeLinejoin="miter"
+          vectorEffect="nonScalingStroke"
+        />
+      </svg>
 
       {/* Layer 10: headline / CTA + scroll cue */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
